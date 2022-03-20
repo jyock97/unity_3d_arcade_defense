@@ -37,7 +37,7 @@ Top-down view game where the Player needs to defend a tower in the middle of the
 
    3. Save
 
-      The Scoreboard needs to be saved.
+      The game is capable of saving the Scoreboard.
 
       If the current play session hasn't ended yet. Save the next values in order to recover the play session later on:
 
@@ -55,6 +55,10 @@ Top-down view game where the Player needs to defend a tower in the middle of the
    5. Difficulty System
    
       The game will happen in rounds. Every end of the round or when a fixed amount of time happens. The next round will start. Every round increases the number of enemy groups to spawn. 
+      
+   6. Enemy spawns
+   
+      Every 15 seconds, spawns a group of enemies around the outer circle of the map (Where the player can not reach)The amount of enemies and the type of them is going to be decided by the difficulty system.
    
 2. Player
 
@@ -171,3 +175,45 @@ The map is very simple, with the Nexo at the center. The Player is able to walkw
 ## Assets
 
 For this project, the next free [3D assets](For this Project, the next free 3D assets will be usedhttps://assetstore.unity.com/packages/templates/tutorials/3d-game-kit-115747 ) will be used.
+
+## Milestones
+
+### M1
+
+* Player
+  * Life
+  * Damage
+  * Invulnerability
+  * Death
+  * Movement
+  * Dash
+  * Attack
+
+### M2
+
+* Buildings
+  * Nexo
+  * Turret
+  * Ground Spikes
+* Player
+  * Money
+  * Build
+
+### M3
+
+* Enemy01
+* Enemy02
+* Enemy03
+
+### M4
+
+* Gameplay
+
+### M5
+
+* VFX
+
+### M6
+
+* Menus
+

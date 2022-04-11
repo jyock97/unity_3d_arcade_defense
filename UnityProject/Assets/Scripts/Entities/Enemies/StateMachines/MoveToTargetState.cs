@@ -22,13 +22,7 @@ public class MoveToTargetState : State
     public static readonly string Speed = "MoveToTarget_Speed";
     public static readonly string DistanceOffset = "MoveToTarget_DistanceOffset";
 
-    private MoveToTargetState(StateMachine stateMachine): base("MoveToTargetState", stateMachine) { }
-    private static State _instance;
-    public static State Instance(StateMachine stateMachine)
-    {
-        return _instance ?? (_instance = new MoveToTargetState(stateMachine));
-    }
-    
+    public MoveToTargetState(StateMachine stateMachine): base("MoveToTargetState", stateMachine) { }
 
     private NavMeshAgent _agent;
     
@@ -40,7 +34,7 @@ public class MoveToTargetState : State
 
     public override void Execute(Whiteboard data)
     {
-        if (data.Get<Boolean>(FollowTarget) && false)
+        if (data.Get<Boolean>(FollowTarget))
         {
             MoveToTarget(data);
         }

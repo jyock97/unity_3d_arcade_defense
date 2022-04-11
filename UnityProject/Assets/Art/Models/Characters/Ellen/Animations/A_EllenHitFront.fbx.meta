@@ -752,11 +752,18 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: MeleeAttackEnd
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -800,14 +807,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 83b647f9ffea82b4a9680e016dec2197
-  - e7f8d149f8d7e5242a52e530f0782e92
-  - da8a135eea6ec3c4ea78d2932814c4dd
-  - 6bddc2fb042e88f4190b861b198db1d4
-  - 591b8bf650e73d641a396d03b9f6af89
-  - 118c1440644eccb46ba5d8a2657a9556
-  - 9d703e84815204b499c34db7f9ec5cd9
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

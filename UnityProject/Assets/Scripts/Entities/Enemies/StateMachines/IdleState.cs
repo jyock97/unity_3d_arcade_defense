@@ -2,12 +2,7 @@
 /// </summary>
 public class IdleState: State
 {
-    private IdleState(StateMachine stateMachine) : base("IdleState", stateMachine) { }
-    private static State _instance;
-    public static State Instance(StateMachine stateMachine)
-    {
-        return _instance ?? (_instance = new IdleState(stateMachine));
-    }
+    public IdleState(StateMachine stateMachine) : base("IdleState", stateMachine) { }
 
     public override void Start(Whiteboard data) { }
 

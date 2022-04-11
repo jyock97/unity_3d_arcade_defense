@@ -27,15 +27,22 @@ public class GlobalGizmosController : MonoBehaviour
     //-------------Enemy Gizmos------------------
     public bool enemies;
     public static bool Enemies;
-    // Enemy01 StateMachine
+    // EnemyStateMachine
     public bool sightRadius;
     public static bool SightRadius;
     public bool attackRadius;
     public static bool AttackRadius;
+    // Enemy01StateMachine
     public bool enemy01AttackHitBoxAlways;
     public static bool Enemy01AttackHitBoxAlways;
     public bool enemy01AttackHitBoxOnHit;
     public static bool Enemy01AttackHitBoxOnHit;
+    // Enemy02StateMachine
+    public bool enemy02AttackTarget;
+    public static bool Enemy02AttackTarget;
+    // AreaProjectileController
+    public bool areaProjectile;
+    public static bool AreaProjectile;
     
     //-------------Tower Gizmos------------------
     [Header("Tower Structure")]
@@ -57,6 +64,8 @@ public class GlobalGizmosController : MonoBehaviour
         AttackRadius = attackRadius;
         Enemy01AttackHitBoxAlways = enemy01AttackHitBoxAlways;
         Enemy01AttackHitBoxOnHit = enemy01AttackHitBoxOnHit;
+        Enemy02AttackTarget = enemy02AttackTarget;
+        AreaProjectile = areaProjectile;
 
         TowerAttackRange = towerAttackRange;
         TowerAttackHitBoxOnHit = towerAttackHitBoxOnHit;
@@ -75,6 +84,8 @@ public class GlobalGizmosController : MonoBehaviour
         attackRadius = flag;
         enemy01AttackHitBoxAlways = flag;
         enemy01AttackHitBoxOnHit = flag;
+        enemy02AttackTarget = flag;
+        areaProjectile = flag;
 
         towerAttackRange = flag;
         towerAttackHitBoxOnHit = flag;

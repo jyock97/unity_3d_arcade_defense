@@ -3,28 +3,22 @@ using UnityEngine.AI;
 
 /// <summary>
 /// Whiteboard usage
-///  - Enemy01Attack_Agent -> expected NavMeshAgent
-///  - Enemy01Attack_Animator -> expected Animator
-///  - Enemy01Attack_Target -> expected GameObject
-///  - Enemy01Attack_FollowTime -> expected float
-///  - Enemy01Attack_KeepInitialPosition -> expected bool
+///  - Enemy01AttackState_Agent -> expected NavMeshAgent
+///  - Enemy01AttackState_Animator -> expected Animator
+///  - Enemy01AttackState_Target -> expected GameObject
+///  - Enemy01AttackState_FollowTime -> expected float
+///  - Enemy01AttackState_KeepInitialPosition -> expected bool
 /// </summary>
-public class Enemy01Attack : State
+public class Enemy01AttackState : State
 {
-    public static readonly string Agent = "Enemy01Attack_Agent";
-    public static readonly string Animator = "Enemy01Attack_Animator";
-    public static readonly string Target = "Enemy01Attack_Target";
-    public static readonly string FollowTime = "Enemy01Attack_FollowTime";
-    public static readonly string KeepInitialPosition = "Enemy01Attack_KeepInitialPosition";
+    public static readonly string Agent = "Enemy01AttackState_Agent";
+    public static readonly string Animator = "Enemy01AttackState_Animator";
+    public static readonly string Target = "Enemy01AttackState_Target";
+    public static readonly string FollowTime = "Enemy01AttackState_FollowTime";
+    public static readonly string KeepInitialPosition = "Enemy01AttackState_KeepInitialPosition";
 
-    public Enemy01Attack(StateMachine stateMachine) : base("Enemy01Attack", stateMachine) { }
-    private static State _instance;
-    public static State Instance(StateMachine stateMachine)
-    {
-        return _instance ?? (_instance = new Enemy01Attack(stateMachine));
-    }
-    
-    
+    public Enemy01AttackState(StateMachine stateMachine) : base("Enemy01AttackState", stateMachine) { }
+
     private NavMeshAgent _agent;
     private GameObject _target;
     private float _currentFollowTime;

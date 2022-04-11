@@ -50,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
         return newPosition;
     }
     
-    // Use by animation
+    // Used by Animation
     private void MeleeAttackHit()
     {
         _onHitTime = Time.time + 0.25f;
@@ -62,7 +62,7 @@ public class PlayerAttack : MonoBehaviour
             raycastHit.collider.gameObject.GetComponent<EnemyController>().DealDamage();
         }
     }
-    // Use by animation
+    // Used by Animation
     private void MeleeAttackEnd()
     {
         _playerController.isAttacking = false;

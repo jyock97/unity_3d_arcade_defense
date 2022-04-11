@@ -4,9 +4,7 @@ using UnityEngine;
 public abstract class StateMachine : MonoBehaviour
 {
     [SerializeField] protected Boolean debugState;
-    
-    [HideInInspector] public EntityController _entityController;
-    
+
     protected State _currentState;
     protected Whiteboard _data;
 
@@ -15,7 +13,6 @@ public abstract class StateMachine : MonoBehaviour
 
     protected virtual void Start()
     {
-        _entityController = GetComponent<EntityController>();
         _data = new Whiteboard();
         InitWhiteBoard();
         

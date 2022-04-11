@@ -759,19 +759,19 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.25870737
-        functionName: MeleeAttackStart
+      - time: 0.2978135
+        functionName: MeleeAttackHit
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: 0.36225522
+      - time: 1
         functionName: MeleeAttackEnd
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask:
       - path: 
@@ -994,7 +994,7 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -1038,18 +1038,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 6fd1fb8479e6a994f9e4cc7fb79d2ac2
-  - 75c0b8ca7a51b3544a4af8381af8db0b
-  - ef55d1093a664e447940f6fade733a6d
-  - 62b2a28a812b9b146916a9cd1a84f0e3
-  - 83b647f9ffea82b4a9680e016dec2197
-  - e7f8d149f8d7e5242a52e530f0782e92
-  - da8a135eea6ec3c4ea78d2932814c4dd
-  - 6bddc2fb042e88f4190b861b198db1d4
-  - 591b8bf650e73d641a396d03b9f6af89
-  - 118c1440644eccb46ba5d8a2657a9556
-  - 9d703e84815204b499c34db7f9ec5cd9
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

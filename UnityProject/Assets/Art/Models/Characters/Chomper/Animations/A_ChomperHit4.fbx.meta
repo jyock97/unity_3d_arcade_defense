@@ -672,7 +672,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -732,10 +732,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - ab5bda48f8799bb4f84ab060e69f60a7
-  - 1e35373135394fa45852a3e55ba00889
-  - 207dc8692867d714ab049ba3b95ff920
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

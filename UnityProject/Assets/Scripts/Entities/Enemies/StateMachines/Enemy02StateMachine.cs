@@ -57,12 +57,13 @@ public class Enemy02StateMachine : EnemyStateMachine
         
         if (GlobalGizmosController.Enemies)
         {
-            Color color = Color.red;
-            color.a = 0.5f;
-            Gizmos.color = color;
 
             if (GlobalGizmosController.Enemy02AttackTarget)
             {
+                Color color = Color.red;
+                color.a = 0.5f;
+                Gizmos.color = color;
+                
                 Gizmos.DrawSphere(_attackTargetPosition, 0.5f);
             }
         }

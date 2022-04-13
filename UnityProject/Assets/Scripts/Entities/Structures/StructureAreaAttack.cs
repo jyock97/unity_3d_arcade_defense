@@ -25,7 +25,7 @@ public class StructureAreaAttack : MonoBehaviour
         
         foreach (RaycastHit raycastHit in hits)
         {
-            Destroy(raycastHit.collider.gameObject);
+            raycastHit.collider.GetComponent<EnemyController>().DealDamage();
         }
     }
 

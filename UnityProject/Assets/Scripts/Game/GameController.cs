@@ -32,6 +32,7 @@ public class GameSaveData
     
     // Enemies Info
     public float[][,] enemiesPosition;
+    public int[][] enemiesLife;
 }
 
 public class GameController : MonoBehaviour
@@ -227,10 +228,12 @@ public class GameController : MonoBehaviour
                 GameObject.FindGameObjectWithTag(TagsLayers.NexoTag).GetComponent<EntityController>().SetLife(_saveData.nexoLife);
             
                 // Restore Structures
-                RestoreGameObjects(structurePrefabs, _saveData.structuresPosition);
+                RestoreGameObjects(structurePrefabs, _saveData.structuresPosition, null);
             
                 // Restore Enemies
-                RestoreGameObjects(enemyPrefabs, _saveData.enemiesPosition);
+                RestoreGameObjects(enemyPrefabs, _saveData.enemiesPosition, _saveData.enemiesLife);
+
+                _totalEnemies = 0;
                 for (int i = 0; i < _saveData.enemiesPosition.Length; i++)
                 {
                     if (_saveData.enemiesPosition[i] != null)
@@ -285,6 +288,12 @@ public class GameController : MonoBehaviour
             GetConvertedPositions(enemies01),
             GetConvertedPositions(enemies02),
             GetConvertedPositions(enemies03)
+        };
+        _saveData.enemiesLife = new[]
+        {
+            GetConvertedLife(enemies01),
+            GetConvertedLife(enemies02),
+            GetConvertedLife(enemies03)
         };
 
         SaveController.SaveGameData(_saveData);
@@ -350,7 +359,23 @@ public class GameController : MonoBehaviour
         return arr;
     }
 
-    private void RestoreGameObjects(GameObject[] objectPrefabs, float[][,] objsPosition)
+    private int[] GetConvertedLife(GameObject[] objs)
+    {
+        if (objs.Length == 0)
+        {
+            return null;
+        }
+        
+        int[] arr = new int[objs.Length];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            arr[i] = objs[i].GetComponent<EntityController>().GetLife();
+        }
+
+        return arr;
+    }
+
+    private void RestoreGameObjects(GameObject[] objectPrefabs, float[][,] objsPosition, int[][] objsLife)
     {
         for (int i = 0; i < objsPosition.Length; i++)
         {
@@ -361,6 +386,11 @@ public class GameController : MonoBehaviour
                     GameObject go = Instantiate(objectPrefabs[i]);
                     float[,] enemiesPosition = objsPosition[i];
                     go.transform.position = new Vector3(enemiesPosition[j,0], enemiesPosition[j,1],enemiesPosition[j,2]);
+
+                    if (objsLife != null)
+                    {
+                        go.GetComponent<EntityController>().SetLife(objsLife[i][j]);
+                    } 
                 }
             }
         }

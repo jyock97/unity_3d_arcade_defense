@@ -20,8 +20,8 @@ public class HealthBarController : MonoBehaviour
     {
         if (shouldFollowCamera)
         {
-            Vector3 foward = (_mainCamera.transform.position - transform.position).normalized;
-            transform.rotation = Quaternion.LookRotation(foward);
+            Vector3 forward = (_mainCamera.transform.position - transform.position).normalized;
+            transform.rotation = Quaternion.LookRotation(forward);
         }
     }
 

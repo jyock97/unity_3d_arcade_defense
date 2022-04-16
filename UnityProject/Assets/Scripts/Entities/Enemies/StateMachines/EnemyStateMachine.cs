@@ -88,6 +88,7 @@ public abstract class EnemyStateMachine : StateMachine
                 {
                     _defaultState = false;
                     _isChasingNexo = false;
+                    _isChasingPlayer = false;
                     _isAttacking = true;
                     AttackTarget(_nexo, true);
                 }
@@ -98,6 +99,7 @@ public abstract class EnemyStateMachine : StateMachine
                     if (collisionCount > 0)
                     {
                         _defaultState = false;
+                        _isChasingNexo = false;
                         _isChasingPlayer = false;
                         _isAttacking = true;
                         AttackTarget(_player, false);

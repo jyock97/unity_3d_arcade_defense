@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject hitColliderRootObj;
     [SerializeField] private float hitColliderRadius;
     [SerializeField] private Vector3 hitColliderOffset;
+    [SerializeField] private ParticleSystem _particleSystem;
 
     private PlayerController _playerController;
     private Animator _animator;
@@ -67,6 +68,16 @@ public class PlayerAttack : MonoBehaviour
     {
         _playerController.isAttacking = false;
         _agent.enabled = true;
+    }
+    // Used by Animation
+    private void MeleeAttackPSStart()
+    {
+        _particleSystem.Play();
+    }
+    // Used by Animation
+    private void MeleeAttackPSEnd()
+    {
+        _particleSystem.Stop();
     }
 
     [Header("Gizmos")]

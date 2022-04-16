@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class AreaProjectileController : MonoBehaviour
 {
+
+    [SerializeField] private float speed;
+    [SerializeField] private float attackRadius;
+    [SerializeField] private ParticleSystem _particleSystemProjectile;
+    [SerializeField] private ParticleSystem _particleSystemTrail;
+    [SerializeField] private ParticleSystem _particleSystemExplosion;
+    
     private Vector3 _targetPosition;
-
-    public float speed;
-    public float attackRadius;
-    public AnimationCurve xCurve;
-    public AnimationCurve zCurve;
-    public AnimationCurve yCurve;
-
+    private AnimationCurve xCurve;
+    private AnimationCurve zCurve;
+    private AnimationCurve yCurve;
+    
     private float _distanceToTarget;
     private float _timeToTarget;
     private float _currentTime;
@@ -27,6 +31,7 @@ public class AreaProjectileController : MonoBehaviour
             _currentTime = _timeToTarget;
             Explode();
         }
+        
         transform.position = new Vector3(xCurve.Evaluate(_currentTime), yCurve.Evaluate(_currentTime), zCurve.Evaluate(_currentTime));
     }
 
@@ -39,6 +44,9 @@ public class AreaProjectileController : MonoBehaviour
             hit.GetComponent<EntityController>().DealDamage();
         }
 
+        _particleSystemProjectile.gameObject.SetActive(false);
+        _particleSystemTrail.Stop();
+        _particleSystemExplosion.Play();
         StartCoroutine(Destroy());
     }
     
@@ -50,12 +58,16 @@ public class AreaProjectileController : MonoBehaviour
         
         xCurve = AnimationCurve.Linear(0, transform.position.x, _timeToTarget, _targetPosition.x);
         zCurve = AnimationCurve.Linear(0, transform.position.z, _timeToTarget, _targetPosition.z);
+        yCurve = AnimationCurve.Linear(0, 0, 0, 0);
         yCurve.keys = new Keyframe[]
         {
             new Keyframe(0, transform.position.y, 0, Mathf.PI),
             new Keyframe(_timeToTarget/2, transform.position.y + 2),
             new Keyframe(_timeToTarget, _targetPosition.y, -2 * Mathf.PI, 0)
         };
+        
+        _particleSystemProjectile.Play();
+        _particleSystemTrail.Play();
     }
 
     private IEnumerator Destroy()

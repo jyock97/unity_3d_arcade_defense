@@ -6,8 +6,8 @@ public class AreaDamageController : MonoBehaviour
     [SerializeField] private float followTime;
     [SerializeField] private float lifeTime;
     [SerializeField] private float damageStartDelayTime;
-    [SerializeField] private float damageDelayTime;
     [SerializeField] private float attackRadius;
+    [SerializeField] private ParticleSystem _particleSystem;
 
     private GameObject _target;
     private float _currentFollowTime;
@@ -19,6 +19,7 @@ public class AreaDamageController : MonoBehaviour
         _currentLifeTime = Time.time + lifeTime;
 
         StartCoroutine(Attack());
+        _particleSystem.Play();
     }
     
     private void Update()

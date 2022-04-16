@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class EntityController : MonoBehaviour
 {
+    [SerializeField] private int maxLife;
     [SerializeField] private int life;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float invulnerabilityTime;
+    [SerializeField] private HealthBarController _healthBarController;
 
     [HideInInspector]public Animator animator;
     [HideInInspector] public bool isDead;
@@ -49,6 +51,10 @@ public class EntityController : MonoBehaviour
         {
             _currentInvulnerabilityTime = Time.time + invulnerabilityTime;
             life--;
+            if (!isDead && _healthBarController != null)
+            {
+                _healthBarController.SetValue((float) life / maxLife);
+            }
             if (life > 0)
             {
                 if (animator != null)
@@ -65,7 +71,37 @@ public class EntityController : MonoBehaviour
 
     protected virtual void Die()
     {
-        isDead = true;
-        animator.SetTrigger("die");
+        if (!isDead)
+        {
+            isDead = true;
+            if (animator != null)
+            {
+                animator.SetTrigger("die");
+            }
+        }
+    }
+    
+    public int GetMaxLife()
+    {
+        return maxLife;
+    }
+
+    public int GetLife()
+    {
+        return life;
+    }
+
+    public void ResetLife()
+    {
+        life = maxLife;
+    }
+
+    public void SetLife(int newLife)
+    {
+        life = newLife;
+        if (_healthBarController != null)
+        {
+            _healthBarController.SetValue((float) life / maxLife);
+        }
     }
 }

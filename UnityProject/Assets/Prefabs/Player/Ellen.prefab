@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 5000
   rotationSpeed: 5
-  invulnerabilityTime: 0.1
+  invulnerabilityTime: 2
   animator: {fileID: 0}
   isDead: 0
   money: 0

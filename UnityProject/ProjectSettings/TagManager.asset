@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Nexo
+  - Spikes
+  - Torret
+  - Enemy01
+  - Enemy02
+  - Enemy03
   layers:
   - Default
   - TransparentFX

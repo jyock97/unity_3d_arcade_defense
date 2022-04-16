@@ -1,15 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
-    public GameObject player;
-
-    private void Update()
+    private void Start()
     {
-        GetComponent<NavMeshAgent>().SetDestination(player.transform.position);
+        SceneManager.LoadSceneAsync("Main", LoadSceneMode.Additive);
     }
 }

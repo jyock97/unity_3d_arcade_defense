@@ -113,10 +113,10 @@ TextureImporter:
       name: OptionsCloseButton_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 480
+        x: 128
+        y: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.509181, y: 0.5203394}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: OptionsCloseButton_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
-        width: 512
-        height: 480
+        x: 641
+        y: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.48188722, y: 0.4847471}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b5db2276a74694847a7ea4346730be67
     internalID: 0
     vertices: []
     indices: 

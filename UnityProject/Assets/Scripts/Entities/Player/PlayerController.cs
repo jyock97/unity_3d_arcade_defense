@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : EntityController
 {
@@ -40,5 +42,24 @@ public class PlayerController : EntityController
         staff.transform.SetParent(null);
         staff.GetComponent<Rigidbody>().useGravity = true;
         staff.GetComponent<BoxCollider>().enabled = true;
+
+        GameController.Instance.StopScore();
+        StartCoroutine(GameOverAfterSeconds());
+    }
+
+    private IEnumerator GameOverAfterSeconds()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public int GetMoney()
+    {
+        return money;
+    }
+
+    public void SetMoney(int newMoney)
+    {
+        money = newMoney;
     }
 }

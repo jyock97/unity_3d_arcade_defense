@@ -18,6 +18,7 @@ public class EnemyController : EntityController
         base.Die();
         
         _playerController.money += moneyGain;
+        GameController.Instance.ReduceTotalEnemies();
         
         Destroy(gameObject);
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,11 +30,11 @@ public class PlayerBuildStructures : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (GameController.Instance.currentGameMode == GameMode.Gameplay && Input.GetKeyDown(KeyCode.Q))
         {
             SelectStructure(0);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (GameController.Instance.currentGameMode == GameMode.Gameplay && Input.GetKeyDown(KeyCode.W))
         {
             SelectStructure(1);
         }
@@ -41,8 +42,8 @@ public class PlayerBuildStructures : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             DestroySelectedStructure();
-            
-            _playerController.isBuilding = false;
+
+            StartCoroutine(SetIsBuildingToFalseEndOFFrame());
         }
 
         if (_selectedStructure != null)
@@ -101,8 +102,14 @@ public class PlayerBuildStructures : MonoBehaviour
             MeshRenderer meshRenderer = child.GetComponent<MeshRenderer>();
             foreach (Material material in meshRenderer.materials)
             {
-                material.color = new Color(90, 0, 0);
+                material.color = Color.red;
             }
         }
+    }
+
+    private IEnumerator SetIsBuildingToFalseEndOFFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        _playerController.isBuilding = false;
     }
 }

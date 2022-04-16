@@ -5,7 +5,7 @@ public class StructureSlowArea : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(TagsLayers.EnemyTag))
+        if(other.gameObject.layer == TagsLayers.EnemyLayerMaskIndex)
         {
             NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
             agent.speed /= 2;
@@ -14,7 +14,7 @@ public class StructureSlowArea : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(TagsLayers.EnemyTag))
+        if(other.gameObject.layer == TagsLayers.EnemyLayerMaskIndex)
         {
             NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
             agent.speed *= 2;
